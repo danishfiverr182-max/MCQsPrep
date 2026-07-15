@@ -1,0 +1,51 @@
+# Environment variables (NEVER commit secrets!)
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+# NOTE: a plain `.env.example` line here would ignore it, not "keep" it —
+# .gitignore has no allowlist behavior on its own. Negate it explicitly so
+# client/.env.example, server/.env.example, and mobile/.env.example all
+# stay tracked (this applies repo-wide since the pattern has no leading
+# slash — same reason the .env patterns above already cover every
+# subfolder, not just the root).
+!.env.example
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+# mobile/ is a managed Expo app — its lockfile is intentionally committed
+# (see mobile/README.md) for reproducible `npm install` / Metro bundling,
+# unlike client/server which don't currently commit one.
+!mobile/package-lock.json
+
+# Build output
+dist/
+build/
+.next/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+.nyc_output/
